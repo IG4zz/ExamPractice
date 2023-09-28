@@ -31,7 +31,6 @@ namespace ProductStore.UI
             );
             cmbBoxGoodsType.ItemsSource = allTypes;
             UpdateSource();
-
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

@@ -40,10 +40,8 @@
                           Height="25"
                           VerticalAlignment="Center"
                           DisplayMemberPath="Name"
-                          SelectedIndex="0" SelectionChanged="cmbBoxGoodsType_SelectionChanged"/>
-
-
-
+                          SelectedIndex="0" 
+                          SelectionChanged="cmbBoxGoodsType_SelectionChanged"/>
             </WrapPanel>
 
         </Grid>
@@ -55,9 +53,7 @@
                 Grid.Row="2"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Margin="10" Click="btnLogin_Click"/>
-
-
-
+                Margin="10" 
+                Click="btnLogin_Click"/>
     </Grid>
 </Window>

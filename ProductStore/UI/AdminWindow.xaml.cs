@@ -6,6 +6,7 @@ using ProductStore.DBEntities;
 using System.Windows;
 using System.Windows.Controls;
 using ProductStore.UC;
+using ProductStore.UI;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -26,8 +27,7 @@ namespace ProductStore.UI
             allTypes.Insert(0, new DBEntities.Type
             {
                 Name = "Все типы"
-            }
-            );
+            });
             cmbBoxGoodsType.ItemsSource = allTypes;
             UpdateSource();
         }
@@ -39,9 +39,8 @@ namespace ProductStore.UI
             currentSource = currentSource.Where(p => p.Name.ToLower().Contains(txtBoxSearch.Text.ToLower())).ToList();
 
             if (cmbBoxGoodsType.SelectedIndex == 0)
-            {
+                currentSource = currentSource;
 
-            }
             if (cmbBoxGoodsType.SelectedIndex >= 1)
                 currentSource = currentSource.Where(p => p.IdType.Equals(cmbBoxGoodsType.SelectedIndex)).ToList();
 
@@ -52,18 +51,26 @@ namespace ProductStore.UI
         private void cmbBoxGoodsType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateSource();
-
         }
 
         private void txtBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             UpdateSource();
-
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            Good goodForRemove = Goods3.Goods2.SelectedItem as Good;
+            try
+            {
+                ProductStoreEntities.GetContext().Goods.Remove(goodForRemove);
+                ProductStoreEntities.GetContext().SaveChanges();
+                UpdateSource();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при удалении");
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -86,7 +93,9 @@ namespace ProductStore.UI
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 }

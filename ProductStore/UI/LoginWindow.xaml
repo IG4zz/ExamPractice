@@ -24,14 +24,14 @@
 
             <Button x:Name="btnLogin"
                     Content="Войти"
-                    Width="125"
+                    Width="175"
                     Margin="0,40,0,0"
                     Height="25" 
                     Click="btnLogin_Click"/>
 
             <Button x:Name="btnBack"
-                    Content="Назад"
-                    Width="125"                  
+                    Content="Продолжить без авторизации"
+                    Width="175"                  
                     Height="25"
                     Margin="0,10,0,0" Click="btnBack_Click"
                     />
