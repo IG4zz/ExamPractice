@@ -1,0 +1,79 @@
+﻿<Window x:Class="ProductStore.UI.AddEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductStore.UI"
+        mc:Ignorable="d"
+        Title="AddEditWindow" Height="450" Width="800" MinHeight="450" MinWidth="800" MaxHeight="450" MaxWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Добавление/Редактирование товара" FontSize="22" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+
+        <Label Content="Название:" Grid.Row="1" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtBoxName"
+                 Text="{Binding Name}"
+                 Height="35"
+                 Width="255"
+                 Background="LightGray"
+                 Grid.Row="1"
+                 HorizontalAlignment="Left"
+                 Margin="100,0,0,0"/>
+
+        <Label Content="Цена:" Grid.Row="2" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtBoxPrice"
+                 Text="{Binding Price}"
+                 Height="35"
+                 Width="255"
+                 Background="LightGray"
+                 Grid.Row="2"
+                 HorizontalAlignment="Left"
+                 Margin="100,0,0,0"/>
+
+        <Label Content="Скидка:" Grid.Row="3" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtBoxDiscount"
+                 Text="{Binding Discount}"
+                 Height="35"
+                 Width="255"
+                 Background="LightGray"
+                 Grid.Row="3"
+                 HorizontalAlignment="Left"
+                 Margin="100,0,0,0"/>
+
+        <Label Content="Тип товара:" Grid.Row="4" FontSize="18" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cmbBoxType"
+                 DisplayMemberPath="Name"
+                 SelectedItem="{Binding Type}"
+                 Height="35"
+                 Width="255"
+                 Background="LightGray"
+                 Grid.Row="4"
+                 HorizontalAlignment="Left"
+                 Margin="110,0,0,0"/>
+
+        <Button x:Name="btnSave"
+                Content="Сохранить"
+                Width="135"
+                Height="35"
+                Grid.Row="5"
+                HorizontalAlignment="Right"
+                Margin="7" Click="btnSave_Click"/>
+
+        <Button x:Name="btnClose"
+                Content="Закрыть"
+                Width="135"
+                Height="35"
+                Grid.Row="5"
+                HorizontalAlignment="Left"
+                Margin="7" Click="btnClose_Click"/>
+
+    </Grid>
+</Window>
